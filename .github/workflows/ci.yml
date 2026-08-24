@@ -16,11 +16,16 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: 'server/package-lock.json'
+          cache-dependency-path: 'server/package.json'
       - name: Install dependencies
-        run: cd server && npm ci || npm install
+        run: |
+          cd server
+          npm install
+          chmod -R +x node_modules/.bin || true
       - name: Run Backend Tests
-        run: cd server && npm test
+        run: |
+          cd server
+          npm test
 
   ai-service-tests:
     runs-on: ubuntu-latest
@@ -48,10 +53,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'client/package.json'
       - name: Install dependencies & build frontend
         run: |
           cd client
           npm install
+          chmod -R +x node_modules/.bin || true
           npm run build
 
   docker-build:

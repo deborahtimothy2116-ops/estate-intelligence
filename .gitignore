@@ -1,0 +1,24 @@
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Production build outputs
+dist/
+**/dist/
+
+# Python virtual environment & cache
+__pycache__/
+**/__pycache__/
+*.pyc
+venv/
+.venv/
+ai-service/trained_models/*.joblib
+ai-service/datasets/*.csv
+
+# Environment variables
+.env
+.env.local
+*.log
+
+# Vitest cache
+.vite/

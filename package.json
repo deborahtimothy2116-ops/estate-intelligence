@@ -1,0 +1,34 @@
+{
+  "name": "real-estate-intelligence-platform",
+  "version": "1.0.0",
+  "description": "AI-Powered Real Estate Intelligence & Property Recommendation Platform",
+  "private": true,
+  "scripts": {
+    "setup": "npm run setup:server && npm run setup:client",
+    "setup:server": "cd server && npm install",
+    "setup:client": "cd client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev:ai": "cd ai-service && uvicorn app.main:app --reload --port 8000",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "test": "npm run test:server && npm run test:ai && npm run test:client",
+    "test:server": "cd server && npm test",
+    "test:ai": "cd ai-service && pytest",
+    "test:client": "cd client && npm test"
+  },
+  "keywords": [
+    "real-estate",
+    "machine-learning",
+    "ai",
+    "fastapi",
+    "express",
+    "react",
+    "xgboost",
+    "socket-io",
+    "recommendation-engine"
+  ],
+  "author": "Full Stack AI Architecture Team",
+  "license": "MIT"
+}
